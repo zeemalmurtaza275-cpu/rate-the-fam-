@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>💕 Rate the Fam</title>
+
+<style>
+
+* {
+
+  box-sizing: border-box;
+
+}
+
+body {
+
+  margin: 0;
+
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  background: linear-gradient(135deg, #fff0f7, #ffe1ef);
+
+  color: #7b2458;
+
+}
+
+header {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 22px 25px;
+
+  font-size: 25px;
+
+  font-weight: 800;
+
+}
+
+.logo {
+
+  color: #d73587;
+
+}
+
+.trophy {
+
+  background: white;
+
+  border: none;
+
+  border-radius: 50%;
+
+  width: 58px;
+
+  height: 58px;
+
+  font-size: 28px;
+
+  box-shadow: 0 5px 20px #e7a7c5;
+
+}
+
+.hero {
+
+  margin: 20px;
+
+  padding: 45px 25px;
+
+  text-align: center;
+
+  border-radius: 35px;
+
+  background: linear-gradient(135deg, #ff8ac5, #e94d9c);
+
+  color: white;
+
+  box-shadow: 0 15px 35px #e7a7c5;
+
+}
+
+.hero .heart {
+
+  font-size: 60px;
+
+}
+
+.hero h1 {
+
+  font-size: 42px;
+
+  margin: 10px 0;
+
+}
+
+.hero p {
+
+  font-size: 18px;
+
+  margin: 0;
+
+}
+
+.people {
+
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 18px;
+
+  padding: 20px;
+
+}
+
+.person {
+
+  background: white;
+
+  border-radius: 28px;
+
+  padding: 12px;
+
+  text-align: center;
+
+  box-shadow: 0 8px 25px #edc1d5;
+
+  cursor: pointer;
+
+  transition: .2s;
+
+}
+
+.person:active {
+
+  transform: scale(.96);
+
+}
+
+.person img {
+
+  width: 100%;
+
+  height: 190px;
+
+  object-fit: cover;
+
+  border-radius: 22px;
+
+}
+
+.person h2 {
+
+  margin: 12px 0 4px;
+
+  color: #76245a;
+
+}
+
+.person p {
+
+  margin: 0 0 10px;
+
+  color: #d3488d;
+
+  font-weight: 600;
+
+}
+
+button {
+
+  border: none;
+
+  background: #f35ca5;
+
+  color: white;
+
+  padding: 13px 22px;
+
+  border-radius: 25px;
+
+  font-size: 16px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+}
+
+.page {
+
+  display: none;
+
+  padding: 20px;
+
+}
+
+.page.active {
+
+  display: block;
+
+}
+
+.back {
+
+  background: white;
+
+  color: #d13f88;
+
+  margin-bottom: 20px;
+
+}
+
+.rating-card {
+
+  background: white;
+
+  border-radius: 30px;
+
+  padding: 25px;
+
+  margin-bottom: 18px;
+
+  text-align: center;
+
+  box-shadow: 0 8px 25px #edc1d5;
+
+}
+
+.rating-card img {
+
+  width: 130px;
+
+  height: 130px;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+
+  border: 6px solid #ff9bca;
+
+}
+
+.rating-card h2 {
+
+  font-size: 28px;
+
+}
+
+.category {
+
+  margin: 25px 0;
+
+}
+
+.category-title {
+
+  font-weight: 800;
+
+  font-size: 18px;
+
+  margin-bottom: 10px;
+
+}
+
+.stars {
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 7px;
+
+}
+
+.star {
+
+  font-size: 34px;
+
+  color: #ddd;
+
+  cursor: pointer;
+
+}
+
+.star.selected {
+
+  color: #ff4fa3;
+
+}
+
+.submit {
+
+  width: 100%;
+
+  font-size: 19px;
+
+  margin: 15px 0 30px;
+
+}
+
+.results {
+
+  background: white;
+
+  border-radius: 30px;
+
+  padding: 25px;
+
+  margin: 20px;
+
+  box-shadow: 0 8px 25px #edc1d5;
+
+}
+
+.result-row {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin: 15px 0;
+
+}
+
+.result-row img {
+
+  width: 55px;
+
+  height: 55px;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+
+}
+
+.result-info {
+
+  flex: 1;
+
+}
+
+.bar {
+
+  height: 12px;
+
+  background: #f5d6e5;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+}
+
+.fill {
+
+  height: 100%;
+
+  background: linear-gradient(90deg, #ff8ac5, #df3f91);
+
+  border-radius: 20px;
+
+}
+
+.leaderboard {
+
+  margin-top: 20px;
+
+}
+
+.rank {
+
+  background: #fff4fa;
+
+  border-radius: 20px;
+
+  padding: 15px;
+
+  margin: 10px 0;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+}
+
+.rank-number {
+
+  font-size: 25px;
+
+  font-weight: 900;
+
+}
+
+@media (max-width: 500px) {
+
+  .hero h1 {
+
+    font-size: 34px;
+
+  }
+
+  .person img {
+
+    height: 155px;
+
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+  <div class="logo">💕 Rate the Fam</div>
+
+  <button class="trophy" onclick="showLeaderboard()">🏆</button>
+
+</header>
+
+<!-- HOME -->
+
+<section id="home" class="page active">
+
+  <div class="hero">
+
+    <div class="heart">💗</div>
+
+    <h1>Rate the Fam</h1>
+
+    <p>Give everyone a rating and see who takes the crown 👑</p>
+
+  </div>
+
+  <div class="people">
+
+    <div class="person" onclick="openPerson('Rubab')">
+
+      <img src="rubab.jpeg">
+
+      <h2>Rubab</h2>
+
+      <p>Tap to rate 💕</p>
+
+    </div>
+
+    <div class="person" onclick="openPerson('Dumbo')">
+
+      <img src="dumbo.jpeg">
+
+      <h2>Dumbo</h2>
+
+      <p>Tap to rate 💕</p>
+
+    </div>
+
+    <div class="person" onclick="openPerson('Saba')">
+
+      <img src="saba.jpeg">
+
+      <h2>Saba</h2>
+
+      <p>Tap to rate 💕</p>
+
+    </div>
+
+    <div class="person" onclick="openPerson('Shahbaz')">
+
+      <img src="shahbaz.jpeg">
+
+      <h2>Shahbaz</h2>
+
+      <p>Tap to rate 💕</p>
+
+    </div>
+
+    <div class="person" onclick="openPerson('Zeemal')">
+
+      <img src="zeemal.jpeg">
+
+      <h2>Zeemal</h2>
+
+      <p>Tap to rate 💕</p>
+
+    </div>
+
+    <div class="person" onclick="openPerson('Bilal')">
+
+      <img src="bilal.jpeg">
+
+      <h2>Bilal</h2>
+
+      <p>Tap to rate 💕</p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- RATING PAGE -->
+
+<section id="rating" class="page">
+
+  <button class="back" onclick="goHome()">← Back</button>
+
+  <div class="rating-card">
+
+    <img id="ratingPhoto">
+
+    <h2 id="ratingName"></h2>
+
+    <div id="categories"></div>
+
+    <button class="submit" onclick="submitRating()">
+
+      Submit Rating 💕
+
+    </button>
+
+  </div>
+
+</section>
+
+<!-- RESULTS -->
+
+<section id="resultsPage" class="page">
+
+  <button class="back" onclick="goHome()">← Back to People</button>
+
+  <div class="results">
+
+    <h1>🎉 Ratings Submitted!</h1>
+
+    <p>Your ratings have been saved!</p>
+
+    <div id="results"></div>
+
+    <button onclick="showLeaderboard()">
+
+      🏆 View Leaderboard
+
+    </button>
+
+  </div>
+
+</section>
+
+<!-- LEADERBOARD -->
+
+<section id="leaderboardPage" class="page">
+
+  <button class="back" onclick="goHome()">← Back</button>
+
+  <div class="results">
+
+    <h1>🏆 Leaderboard</h1>
+
+    <p>Who's taking the crown? 👑</p>
+
+    <div id="leaderboard"></div>
+
+  </div>
+
+</section>
+
+<script>
+
+const people = {
+
+  Rubab: "rubab.jpeg",
+
+  Dumbo: "dumbo.jpeg",
+
+  Saba: "saba.jpeg",
+
+  Shahbaz: "shahbaz.jpeg",
+
+  Zeemal: "zeemal.jpeg",
+
+  Bilal: "bilal.jpeg"
+
+};
+
+const categories = [
+
+  "Brave",
+
+  "Smart",
+
+  "Good-looking",
+
+  "Hardworking",
+
+  "Aggressive",
+
+  "Annoying",
+
+  "Stupid"
+
+];
+
+let currentPerson = "";
+
+let ratings = {};
+
+function openPerson(name) {
+
+  currentPerson = name;
+
+  document.getElementById("home").classList.remove("active");
+
+  document.getElementById("rating").classList.add("active");
+
+  document.getElementById("ratingName").textContent = name;
+
+  document.getElementById("ratingPhoto").src = people[name];
+
+  let html = "";
+
+  categories.forEach(category => {
+
+    html += `
+
+      <div class="category">
+
+        <div class="category-title">${category}</div>
+
+        <div class="stars" data-category="${category}">
+
+          <span class="star" onclick="rate(1, '${category}')">★</span>
+
+          <span class="star" onclick="rate(2, '${category}')">★</span>
+
+          <span class="star" onclick="rate(3, '${category}')">★</span>
+
+          <span class="star" onclick="rate(4, '${category}')">★</span>
+
+          <span class="star" onclick="rate(5, '${category}')">★</span>
+
+        </div>
+
+      </div>
+
+    `;
+
+  });
+
+  document.getElementById("categories").innerHTML = html;
+
+  ratings[currentPerson] = {};
+
+}
+
+function rate(number, category) {
+
+  ratings[currentPerson][category] = number;
+
+  const stars = document.querySelector(
+
+    `[data-category="${category}"]`
+
+  ).children;
+
+  for (let i = 0; i < 5; i++) {
+
+    if (i < number) {
+
+      stars[i].classList.add("selected");
+
+    } else {
+
+      stars[i].classList.remove("selected");
+
+    }
+
+  }
+
+}
+
+function submitRating() {
+
+  const current = ratings[currentPerson];
+
+  if (!current || Object.keys(current).length < categories.length) {
+
+    alert("Rate every category first! 💕");
+
+    return;
+
+  }
+
+  let total = 0;
+
+  categories.forEach(category => {
+
+    total += current[category];
+
+  });
+
+  if (!window.allScores) {
+
+    window.allScores = {};
+
+  }
+
+  window.allScores[currentPerson] = total;
+
+  document.getElementById("rating").classList.remove("active");
+
+  document.getElementById("resultsPage").classList.add("active");
+
+  showResults();
+
+}
+
+function showResults() {
+
+  let html = "";
+
+  Object.keys(window.allScores || {}).forEach(name => {
+
+    const score = window.allScores[name];
+
+    const percentage = Math.round((score / 35) * 100);
+
+    html += `
+
+      <div class="result-row">
+
+        <img src="${people[name]}">
+
+        <div class="result-info">
+
+          <strong>${name}</strong>
+
+          <div class="bar">
+
+            <div class="fill" style="width:${percentage}%"></div>
+
+          </div>
+
+          <small>
+
+            ${score}/35 stars • ${percentage}%
+
+          </small>
+
+        </div>
+
+      </div>
+
+    `;
+
+  });
+
+  document.getElementById("results").innerHTML = html;
+
+}
+
+function showLeaderboard() {
+
+  document.querySelectorAll(".page")
+
+    .forEach(page => page.classList.remove("active"));
+
+  document.getElementById("leaderboardPage")
+
+    .classList.add("active");
+
+  let scores = Object.entries(window.allScores || {});
+
+  scores.sort((a, b) => b[1] - a[1]);
+
+  let html = "";
+
+  scores.forEach((item, index) => {
+
+    const name = item[0];
+
+    const score = item[1];
+
+    const medals = ["🥇", "🥈", "🥉"];
+
+    html += `
+
+      <div class="rank">
+
+        <div class="rank-number">
+
+          ${medals[index] || "🏅"}
+
+        </div>
+
+        <img src="${people[name]}"
+
+             style="width:55px;height:55px;object-fit:cover;border-radius:50%;">
+
+        <div>
+
+          <strong>${name}</strong><br>
+
+          ${score}/35 stars
+
+        </div>
+
+      </div>
+
+    `;
+
+  });
+
+  if (!html) {
+
+    html = "<p>No ratings yet! Be the first 👀💕</p>";
+
+  }
+
+  document.getElementById("leaderboard").innerHTML = html;
+
+}
+
+function goHome() {
+
+  document.querySelectorAll(".page")
+
+    .forEach(page => page.classList.remove("active"));
+
+  document.getElementById("home")
+
+    .classList.add("active");
+
+}
+
+</script>
+
+</body>
+
+</html>
