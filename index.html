@@ -24,9 +24,21 @@ body {
 
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
-  background: linear-gradient(135deg, #fff0f7, #ffe1ef);
+  background: linear-gradient(135deg, #fff3f9, #ffe0ed);
 
-  color: #7b2458;
+  color: #70264f;
+
+  min-height: 100vh;
+
+}
+
+button {
+
+  border: none;
+
+  font: inherit;
+
+  cursor: pointer;
 
 }
 
@@ -38,75 +50,87 @@ header {
 
   align-items: center;
 
-  padding: 22px 25px;
-
-  font-size: 25px;
-
-  font-weight: 800;
+  padding: 20px;
 
 }
 
 .logo {
 
-  color: #d73587;
+  font-size: 22px;
+
+  font-weight: 800;
+
+  color: #d93687;
 
 }
 
 .trophy {
 
-  background: white;
+  width: 52px;
 
-  border: none;
+  height: 52px;
 
   border-radius: 50%;
 
-  width: 58px;
+  background: white;
 
-  height: 58px;
+  font-size: 25px;
 
-  font-size: 28px;
+  box-shadow: 0 6px 20px rgba(210,70,130,.15);
 
-  box-shadow: 0 5px 20px #e7a7c5;
+}
+
+/* HOME */
+
+.page {
+
+  display: none;
+
+}
+
+.page.active {
+
+  display: block;
 
 }
 
 .hero {
 
-  margin: 20px;
+  margin: 10px 18px 25px;
 
-  padding: 45px 25px;
+  padding: 40px 22px;
 
   text-align: center;
 
-  border-radius: 35px;
+  border-radius: 32px;
 
-  background: linear-gradient(135deg, #ff8ac5, #e94d9c);
+  background: linear-gradient(135deg, #ff8bc5, #e84b9a);
 
   color: white;
 
-  box-shadow: 0 15px 35px #e7a7c5;
+  box-shadow: 0 15px 35px rgba(220,70,140,.25);
 
 }
 
-.hero .heart {
+.heart {
 
-  font-size: 60px;
+  font-size: 55px;
 
 }
 
 .hero h1 {
 
-  font-size: 42px;
+  font-size: 38px;
 
-  margin: 10px 0;
+  margin: 8px 0;
 
 }
 
 .hero p {
 
-  font-size: 18px;
-
   margin: 0;
+
+  font-size: 16px;
 
 }
 
@@ -116,9 +140,9 @@ header {
 
   grid-template-columns: repeat(2, 1fr);
 
-  gap: 18px;
+  gap: 15px;
 
-  padding: 20px;
+  padding: 0 18px 30px;
 
 }
 
@@ -126,15 +150,13 @@ header {
 
   background: white;
 
-  border-radius: 28px;
+  border-radius: 25px;
 
-  padding: 12px;
+  padding: 10px;
 
   text-align: center;
 
-  box-shadow: 0 8px 25px #edc1d5;
-
-  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(180,70,120,.12);
 
   transition: .2s;
 
@@ -148,13 +170,15 @@ header {
 
 .person img {
 
+  display: block;
+
   width: 100%;
 
-  height: 190px;
+  height: 180px;
 
   object-fit: cover;
 
-  border-radius: 22px;
+  border-radius: 19px;
 
 }
 
@@ -162,51 +186,29 @@ header {
 
   margin: 12px 0 4px;
 
-  color: #76245a;
+  font-size: 20px;
+
+  color: #70264f;
 
 }
 
 .person p {
 
-  margin: 0 0 10px;
+  margin: 0 0 8px;
 
-  color: #d3488d;
+  color: #d84b91;
 
-  font-weight: 600;
-
-}
-
-button {
-
-  border: none;
-
-  background: #f35ca5;
-
-  color: white;
-
-  padding: 13px 22px;
-
-  border-radius: 25px;
-
-  font-size: 16px;
+  font-size: 13px;
 
   font-weight: 700;
 
-  cursor: pointer;
-
 }
 
-.page {
+/* RATING */
 
-  display: none;
+.rating-page {
 
-  padding: 20px;
-
-}
-
-.page.active {
-
-  display: block;
+  padding: 18px;
 
 }
 
@@ -214,9 +216,15 @@ button {
 
   background: white;
 
-  color: #d13f88;
+  color: #d63d89;
 
-  margin-bottom: 20px;
+  padding: 12px 18px;
+
+  border-radius: 20px;
+
+  margin-bottom: 18px;
+
+  box-shadow: 0 5px 15px rgba(180,70,120,.1);
 
 }
 
@@ -226,47 +234,63 @@ button {
 
   border-radius: 30px;
 
-  padding: 25px;
-
-  margin-bottom: 18px;
+  padding: 25px 18px;
 
   text-align: center;
 
-  box-shadow: 0 8px 25px #edc1d5;
+  box-shadow: 0 10px 30px rgba(180,70,120,.13);
 
 }
 
 .rating-card img {
 
-  width: 130px;
+  width: 140px;
 
-  height: 130px;
+  height: 140px;
 
   object-fit: cover;
 
   border-radius: 50%;
 
-  border: 6px solid #ff9bca;
+  border: 6px solid #ff9dcb;
+
+  box-shadow: 0 8px 20px rgba(210,70,130,.2);
 
 }
 
-.rating-card h2 {
+.rating-card h1 {
 
-  font-size: 28px;
+  color: #d93687;
+
+  margin: 15px 0 5px;
+
+}
+
+.subtitle {
+
+  color: #9b6681;
+
+  margin-bottom: 25px;
 
 }
 
 .category {
 
-  margin: 25px 0;
+  background: #fff6fa;
+
+  border-radius: 20px;
+
+  padding: 16px;
+
+  margin: 12px 0;
 
 }
 
-.category-title {
+.category-name {
+
+  font-size: 17px;
 
   font-weight: 800;
-
-  font-size: 18px;
 
   margin-bottom: 10px;
 
@@ -278,23 +302,25 @@ button {
 
   justify-content: center;
 
-  gap: 7px;
+  gap: 5px;
 
 }
 
 .star {
 
+  background: transparent;
+
+  color: #dfc6d2;
+
   font-size: 34px;
 
-  color: #ddd;
-
-  cursor: pointer;
+  padding: 0 3px;
 
 }
 
 .star.selected {
 
-  color: #ff4fa3;
+  color: #ff55a8;
 
 }
 
@@ -302,23 +328,49 @@ button {
 
   width: 100%;
 
-  font-size: 19px;
+  margin-top: 22px;
 
-  margin: 15px 0 30px;
+  padding: 17px;
+
+  border-radius: 20px;
+
+  color: white;
+
+  font-size: 18px;
+
+  font-weight: 800;
+
+  background: linear-gradient(135deg, #ff76b7, #dc3d8d);
+
+  box-shadow: 0 10px 25px rgba(220,60,140,.25);
 
 }
 
+/* RESULTS */
+
 .results {
+
+  padding: 20px;
+
+}
+
+.results-card {
 
   background: white;
 
   border-radius: 30px;
 
-  padding: 25px;
+  padding: 28px 20px;
 
-  margin: 20px;
+  box-shadow: 0 10px 30px rgba(180,70,120,.13);
 
-  box-shadow: 0 8px 25px #edc1d5;
+  text-align: center;
+
+}
+
+.results-card h1 {
+
+  color: #d93687;
 
 }
 
@@ -330,19 +382,21 @@ button {
 
   gap: 12px;
 
-  margin: 15px 0;
+  text-align: left;
+
+  margin: 18px 0;
 
 }
 
 .result-row img {
 
-  width: 55px;
+  width: 58px;
 
-  height: 55px;
-
-  object-fit: cover;
+  height: 58px;
 
   border-radius: 50%;
+
+  object-fit: cover;
 
 }
 
@@ -352,15 +406,23 @@ button {
 
 }
 
+.result-info strong {
+
+  font-size: 16px;
+
+}
+
 .bar {
 
-  height: 12px;
+  height: 11px;
 
-  background: #f5d6e5;
+  background: #f3dce8;
 
   border-radius: 20px;
 
   overflow: hidden;
+
+  margin: 6px 0;
 
 }
 
@@ -368,27 +430,65 @@ button {
 
   height: 100%;
 
-  background: linear-gradient(90deg, #ff8ac5, #df3f91);
+  background: linear-gradient(90deg, #ff91c5, #df3d91);
 
   border-radius: 20px;
 
 }
 
+.result-info small {
+
+  color: #a06d88;
+
+}
+
+.leaderboard-button {
+
+  width: 100%;
+
+  padding: 16px;
+
+  border-radius: 20px;
+
+  background: #fff0f7;
+
+  color: #d93687;
+
+  font-weight: 800;
+
+  margin-top: 15px;
+
+}
+
+/* LEADERBOARD */
+
 .leaderboard {
 
-  margin-top: 20px;
+  padding: 20px;
+
+}
+
+.leaderboard-card {
+
+  background: white;
+
+  border-radius: 30px;
+
+  padding: 25px 18px;
+
+  box-shadow: 0 10px 30px rgba(180,70,120,.13);
+
+}
+
+.leaderboard-card h1 {
+
+  text-align: center;
+
+  color: #d93687;
 
 }
 
 .rank {
-
-  background: #fff4fa;
-
-  border-radius: 20px;
-
-  padding: 15px;
-
-  margin: 10px 0;
 
   display: flex;
 
@@ -396,27 +496,83 @@ button {
 
   gap: 12px;
 
+  background: #fff5fa;
+
+  border-radius: 20px;
+
+  padding: 12px;
+
+  margin: 10px 0;
+
 }
 
 .rank-number {
 
-  font-size: 25px;
+  font-size: 24px;
+
+  width: 35px;
+
+  text-align: center;
+
+}
+
+.rank img {
+
+  width: 58px;
+
+  height: 58px;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+
+}
+
+.rank-info {
+
+  flex: 1;
+
+}
+
+.rank-info strong {
+
+  display: block;
+
+  font-size: 17px;
+
+}
+
+.rank-info small {
+
+  color: #a06d88;
+
+}
+
+.rank-score {
+
+  color: #d93687;
 
   font-weight: 900;
 
 }
 
-@media (max-width: 500px) {
-
-  .hero h1 {
-
-    font-size: 34px;
-
-  }
+@media (max-width: 420px) {
 
   .person img {
 
     height: 155px;
+
+  }
+
+  .hero h1 {
+
+    font-size: 32px;
+
+  }
+
+  .star {
+
+    font-size: 30px;
 
   }
 
@@ -430,23 +586,43 @@ button {
 
 <header>
 
-  <div class="logo">💕 Rate the Fam</div>
+  <div class="logo">
 
-  <button class="trophy" onclick="showLeaderboard()">🏆</button>
+    💕 Rate the Fam
+
+  </div>
+
+  <button class="trophy" onclick="showLeaderboard()">
+
+    🏆
+
+  </button>
 
 </header>
 
-<!-- HOME -->
+<!-- HOME PAGE -->
 
 <section id="home" class="page active">
 
   <div class="hero">
 
-    <div class="heart">💗</div>
+    <div class="heart">
 
-    <h1>Rate the Fam</h1>
+      💗
 
-    <p>Give everyone a rating and see who takes the crown 👑</p>
+    </div>
+
+    <h1>
+
+      Rate the Fam
+
+    </h1>
+
+    <p>
+
+      Give everyone a rating and see who takes the crown 👑
+
+    </p>
 
   </div>
 
@@ -454,7 +630,7 @@ button {
 
     <div class="person" onclick="openPerson('Rubab')">
 
-      <img src="rubab.jpeg">
+      <img src="./rubab.jpeg" alt="Rubab">
 
       <h2>Rubab</h2>
 
@@ -464,7 +640,7 @@ button {
 
     <div class="person" onclick="openPerson('Dumbo')">
 
-      <img src="dumbo.jpeg">
+      <img src="./dumbo.jpeg" alt="Dumbo">
 
       <h2>Dumbo</h2>
 
@@ -474,7 +650,7 @@ button {
 
     <div class="person" onclick="openPerson('Saba')">
 
-      <img src="saba.jpeg">
+      <img src="./saba.jpeg" alt="Saba">
 
       <h2>Saba</h2>
 
@@ -484,7 +660,7 @@ button {
 
     <div class="person" onclick="openPerson('Shahbaz')">
 
-      <img src="shahbaz.jpeg">
+      <img src="./shahbaz.jpeg" alt="Shahbaz">
 
       <h2>Shahbaz</h2>
 
@@ -494,7 +670,7 @@ button {
 
     <div class="person" onclick="openPerson('Zeemal')">
 
-      <img src="zeemal.jpeg">
+      <img src="./zeemal.jpeg" alt="Zeemal">
 
       <h2>Zeemal</h2>
 
@@ -504,7 +680,7 @@ button {
 
     <div class="person" onclick="openPerson('Bilal')">
 
-      <img src="bilal.jpeg">
+      <img src="./bilal.jpeg" alt="Bilal">
 
       <h2>Bilal</h2>
 
@@ -518,15 +694,25 @@ button {
 
 <!-- RATING PAGE -->
 
-<section id="rating" class="page">
+<section id="rating" class="page rating-page">
 
-  <button class="back" onclick="goHome()">← Back</button>
+  <button class="back" onclick="goHome()">
+
+    ← Back
+
+  </button>
 
   <div class="rating-card">
 
-    <img id="ratingPhoto">
+    <img id="ratingPhoto" alt="">
 
-    <h2 id="ratingName"></h2>
+    <h1 id="ratingName"></h1>
+
+    <p class="subtitle">
+
+      Rate them from 1 to 5 ⭐
+
+    </p>
 
     <div id="categories"></div>
 
@@ -540,21 +726,39 @@ button {
 
 </section>
 
-<!-- RESULTS -->
+<!-- RESULTS PAGE -->
 
-<section id="resultsPage" class="page">
+<section id="resultsPage" class="page results">
 
-  <button class="back" onclick="goHome()">← Back to People</button>
+  <button class="back" onclick="goHome()">
 
-  <div class="results">
+    ← Back to People
 
-    <h1>🎉 Ratings Submitted!</h1>
+  </button>
 
-    <p>Your ratings have been saved!</p>
+  <div class="results-card">
+
+    <h1>
+
+      🎉 Ratings Submitted!
+
+    </h1>
+
+    <p>
+
+      Here's how everyone is doing:
+
+    </p>
 
     <div id="results"></div>
 
-    <button onclick="showLeaderboard()">
+    <button
+
+      class="leaderboard-button"
+
+      onclick="showLeaderboard()"
+
+    >
 
       🏆 View Leaderboard
 
@@ -564,17 +768,29 @@ button {
 
 </section>
 
-<!-- LEADERBOARD -->
+<!-- LEADERBOARD PAGE -->
 
-<section id="leaderboardPage" class="page">
+<section id="leaderboardPage" class="page leaderboard">
 
-  <button class="back" onclick="goHome()">← Back</button>
+  <button class="back" onclick="goHome()">
 
-  <div class="results">
+    ← Back
 
-    <h1>🏆 Leaderboard</h1>
+  </button>
 
-    <p>Who's taking the crown? 👑</p>
+  <div class="leaderboard-card">
+
+    <h1>
+
+      🏆 Leaderboard
+
+    </h1>
+
+    <p style="text-align:center;color:#9b6681;">
+
+      Who's taking the crown? 👑
+
+    </p>
 
     <div id="leaderboard"></div>
 
@@ -586,17 +802,17 @@ button {
 
 const people = {
 
-  Rubab: "rubab.jpeg",
+  Rubab: "./rubab.jpeg",
 
-  Dumbo: "dumbo.jpeg",
+  Dumbo: "./dumbo.jpeg",
 
-  Saba: "saba.jpeg",
+  Saba: "./saba.jpeg",
 
-  Shahbaz: "shahbaz.jpeg",
+  Shahbaz: "./shahbaz.jpeg",
 
-  Zeemal: "zeemal.jpeg",
+  Zeemal: "./zeemal.jpeg",
 
-  Bilal: "bilal.jpeg"
+  Bilal: "./bilal.jpeg"
 
 };
 
@@ -622,17 +838,55 @@ let currentPerson = "";
 
 let ratings = {};
 
+let allScores = {};
+
+function showPage(pageId) {
+
+  document
+
+    .querySelectorAll(".page")
+
+    .forEach(page => {
+
+      page.classList.remove("active");
+
+    });
+
+  document
+
+    .getElementById(pageId)
+
+    .classList.add("active");
+
+  window.scrollTo({
+
+    top: 0,
+
+    behavior: "smooth"
+
+  });
+
+}
+
 function openPerson(name) {
 
   currentPerson = name;
 
-  document.getElementById("home").classList.remove("active");
+  showPage("rating");
 
-  document.getElementById("rating").classList.add("active");
+  document
 
-  document.getElementById("ratingName").textContent = name;
+    .getElementById("ratingName")
 
-  document.getElementById("ratingPhoto").src = people[name];
+    .textContent = name;
+
+  document
+
+    .getElementById("ratingPhoto")
+
+    .src = people[name];
+
+  ratings[name] = {};
 
   let html = "";
 
@@ -642,19 +896,59 @@ function openPerson(name) {
 
       <div class="category">
 
-        <div class="category-title">${category}</div>
+        <div class="category-name">
 
-        <div class="stars" data-category="${category}">
+          ${category}
 
-          <span class="star" onclick="rate(1, '${category}')">★</span>
+        </div>
 
-          <span class="star" onclick="rate(2, '${category}')">★</span>
+        <div
 
-          <span class="star" onclick="rate(3, '${category}')">★</span>
+          class="stars"
 
-          <span class="star" onclick="rate(4, '${category}')">★</span>
+          data-category="${category}"
 
-          <span class="star" onclick="rate(5, '${category}')">★</span>
+        >
+
+          <button
+
+            class="star"
+
+            onclick="rate(1, '${category}')"
+
+          >★</button>
+
+          <button
+
+            class="star"
+
+            onclick="rate(2, '${category}')"
+
+          >★</button>
+
+          <button
+
+            class="star"
+
+            onclick="rate(3, '${category}')"
+
+          >★</button>
+
+          <button
+
+            class="star"
+
+            onclick="rate(4, '${category}')"
+
+          >★</button>
+
+          <button
+
+            class="star"
+
+            onclick="rate(5, '${category}')"
+
+          >★</button>
 
         </div>
 
@@ -664,9 +958,11 @@ function openPerson(name) {
 
   });
 
-  document.getElementById("categories").innerHTML = html;
+  document
 
-  ratings[currentPerson] = {};
+    .getElementById("categories")
+
+    .innerHTML = html;
 
 }
 
@@ -674,35 +970,55 @@ function rate(number, category) {
 
   ratings[currentPerson][category] = number;
 
-  const stars = document.querySelector(
+  const stars = document
 
-    `[data-category="${category}"]`
+    .querySelector(
 
-  ).children;
+      `[data-category="${category}"]`
 
-  for (let i = 0; i < 5; i++) {
+    )
 
-    if (i < number) {
+    .querySelectorAll(".star");
 
-      stars[i].classList.add("selected");
+  stars.forEach((star, index) => {
+
+    if (index < number) {
+
+      star.classList.add("selected");
 
     } else {
 
-      stars[i].classList.remove("selected");
+      star.classList.remove("selected");
 
     }
 
-  }
+  });
 
 }
 
 function submitRating() {
 
-  const current = ratings[currentPerson];
+  const current =
 
-  if (!current || Object.keys(current).length < categories.length) {
+    ratings[currentPerson];
 
-    alert("Rate every category first! 💕");
+  const incomplete =
+
+    categories.some(
+
+      category =>
+
+        !current[category]
+
+    );
+
+  if (incomplete) {
+
+    alert(
+
+      "Please rate every category first! 💕"
+
+    );
 
     return;
 
@@ -716,17 +1032,7 @@ function submitRating() {
 
   });
 
-  if (!window.allScores) {
-
-    window.allScores = {};
-
-  }
-
-  window.allScores[currentPerson] = total;
-
-  document.getElementById("rating").classList.remove("active");
-
-  document.getElementById("resultsPage").classList.add("active");
+  allScores[currentPerson] = total;
 
   showResults();
 
@@ -734,29 +1040,155 @@ function submitRating() {
 
 function showResults() {
 
+  showPage("resultsPage");
+
   let html = "";
 
-  Object.keys(window.allScores || {}).forEach(name => {
+  Object
 
-    const score = window.allScores[name];
+    .entries(allScores)
 
-    const percentage = Math.round((score / 35) * 100);
+    .forEach(([name, score]) => {
+
+      const percentage =
+
+        Math.round(
+
+          (score / 35) * 100
+
+        );
+
+      html += `
+
+        <div class="result-row">
+
+          <img
+
+            src="${people[name]}"
+
+            alt="${name}"
+
+          >
+
+          <div class="result-info">
+
+            <strong>
+
+              ${name}
+
+            </strong>
+
+            <div class="bar">
+
+              <div
+
+                class="fill"
+
+                style="width:${percentage}%"
+
+              ></div>
+
+            </div>
+
+            <small>
+
+              ${score}/35 stars • ${percentage}%
+
+            </small>
+
+          </div>
+
+        </div>
+
+      `;
+
+    });
+
+  document
+
+    .getElementById("results")
+
+    .innerHTML = html;
+
+}
+
+function showLeaderboard() {
+
+  showPage("leaderboardPage");
+
+  const scores =
+
+    Object.entries(allScores)
+
+      .sort((a,b) => b[1] - a[1]);
+
+  let html = "";
+
+  if (scores.length === 0) {
+
+    html = `
+
+      <p style="text-align:center;">
+
+        Nobody has been rated yet! 👀💕
+
+      </p>
+
+    `;
+
+  }
+
+  scores.forEach(([name, score], index) => {
+
+    const medals = [
+
+      "🥇",
+
+      "🥈",
+
+      "🥉"
+
+    ];
+
+    const rank =
+
+      medals[index] ||
+
+      `#${index + 1}`;
+
+    const percentage =
+
+      Math.round(
+
+        (score / 35) * 100
+
+      );
 
     html += `
 
-      <div class="result-row">
+      <div class="rank">
 
-        <img src="${people[name]}">
+        <div class="rank-number">
 
-        <div class="result-info">
+          ${rank}
 
-          <strong>${name}</strong>
+        </div>
 
-          <div class="bar">
+        <img
 
-            <div class="fill" style="width:${percentage}%"></div>
+          src="${people[name]}"
 
-          </div>
+          alt="${name}"
+
+        >
+
+        <div class="rank-info">
+
+          <strong>
+
+            ${name}
+
+          </strong>
 
           <small>
 
@@ -766,59 +1198,9 @@ function showResults() {
 
         </div>
 
-      </div>
+        <div class="rank-score">
 
-    `;
-
-  });
-
-  document.getElementById("results").innerHTML = html;
-
-}
-
-function showLeaderboard() {
-
-  document.querySelectorAll(".page")
-
-    .forEach(page => page.classList.remove("active"));
-
-  document.getElementById("leaderboardPage")
-
-    .classList.add("active");
-
-  let scores = Object.entries(window.allScores || {});
-
-  scores.sort((a, b) => b[1] - a[1]);
-
-  let html = "";
-
-  scores.forEach((item, index) => {
-
-    const name = item[0];
-
-    const score = item[1];
-
-    const medals = ["🥇", "🥈", "🥉"];
-
-    html += `
-
-      <div class="rank">
-
-        <div class="rank-number">
-
-          ${medals[index] || "🏅"}
-
-        </div>
-
-        <img src="${people[name]}"
-
-             style="width:55px;height:55px;object-fit:cover;border-radius:50%;">
-
-        <div>
-
-          <strong>${name}</strong><br>
-
-          ${score}/35 stars
+          ${percentage}%
 
         </div>
 
@@ -828,25 +1210,17 @@ function showLeaderboard() {
 
   });
 
-  if (!html) {
+  document
 
-    html = "<p>No ratings yet! Be the first 👀💕</p>";
+    .getElementById("leaderboard")
 
-  }
-
-  document.getElementById("leaderboard").innerHTML = html;
+    .innerHTML = html;
 
 }
 
 function goHome() {
 
-  document.querySelectorAll(".page")
-
-    .forEach(page => page.classList.remove("active"));
-
-  document.getElementById("home")
-
-    .classList.add("active");
+  showPage("home");
 
 }
 
