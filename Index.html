@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Rating 💕💕</title>
+
+<style>
+
+    * {
+
+        box-sizing: border-box;
+
+    }
+
+    body {
+
+        margin: 0;
+
+        background: #ffeaf4;
+
+        font-family: Arial, sans-serif;
+
+        color: #5d3048;
+
+    }
+
+    header {
+
+        text-align: center;
+
+        padding: 35px 15px 20px;
+
+    }
+
+    h1 {
+
+        margin: 0;
+
+        font-size: 38px;
+
+    }
+
+    .subtitle {
+
+        margin-top: 8px;
+
+        color: #9a5d78;
+
+        font-size: 17px;
+
+    }
+
+    .people {
+
+        width: 92%;
+
+        max-width: 700px;
+
+        margin: auto;
+
+        padding-bottom: 50px;
+
+    }
+
+    .person {
+
+        background: white;
+
+        border-radius: 28px;
+
+        padding: 24px;
+
+        margin: 25px 0;
+
+        box-shadow: 0 7px 22px rgba(100, 40, 70, 0.12);
+
+        text-align: center;
+
+    }
+
+    .person img {
+
+        width: 160px;
+
+        height: 160px;
+
+        object-fit: cover;
+
+        border-radius: 50%;
+
+        display: block;
+
+        margin: 0 auto 15px;
+
+        border: 5px solid #ffc9df;
+
+    }
+
+    .person h2 {
+
+        font-size: 28px;
+
+        margin: 8px 0 25px;
+
+    }
+
+    .category {
+
+        text-align: left;
+
+        margin: 19px 0;
+
+    }
+
+    .category-name {
+
+        font-size: 17px;
+
+        font-weight: bold;
+
+        margin-bottom: 7px;
+
+    }
+
+    .stars {
+
+        display: flex;
+
+        flex-wrap: wrap;
+
+        gap: 2px;
+
+    }
+
+    .star {
+
+        font-size: 28px;
+
+        color: #d8d8d8;
+
+        cursor: pointer;
+
+        user-select: none;
+
+        transition: transform 0.12s;
+
+    }
+
+    .star:hover {
+
+        transform: scale(1.15);
+
+    }
+
+    .star.active {
+
+        color: #ff70aa;
+
+    }
+
+    .result {
+
+        background: #fff0f7;
+
+        border-radius: 16px;
+
+        padding: 13px;
+
+        margin-top: 22px;
+
+        font-weight: bold;
+
+        text-align: center;
+
+    }
+
+    .buttons {
+
+        margin-top: 12px;
+
+    }
+
+    button {
+
+        border: none;
+
+        border-radius: 20px;
+
+        padding: 11px 20px;
+
+        background: #ff8ab8;
+
+        color: white;
+
+        font-size: 15px;
+
+        cursor: pointer;
+
+    }
+
+    button:hover {
+
+        background: #ff649f;
+
+    }
+
+    .hidden {
+
+        display: none;
+
+    }
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>Rating 💕💕</h1>
+
+    <div class="subtitle">
+
+        Rate the fam on everything 😭
+
+    </div>
+
+</header>
+
+<div class="people">
+
+    <!-- ZEEMAL -->
+
+    <div class="person" data-person="zeemal">
+
+        <img src="1.jpeg" alt="Zeemal">
+
+        <h2>Zeemal</h2>
+
+        <div class="category">
+
+            <div class="category-name">Smart</div>
+
+            <div class="stars" data-category="Smart"></div>
+
+        </div>
+
+        <div class="category">
+
+            <div class="category-name">Funny</div>
+
+            <div class="stars" data-category="Funny"></div>
+
+        </div>
+
+        <div class="category">
+
+            <div class="category-name">Annoying</div>
+
+            <div class="stars" data-category="Annoying"></div>
+
+        </div>
+
+        <div class="category">
+
+            <div class="category-name">Good Looking</div>
+
+            <div class="stars" data-category="Good Looking"></div>
+
+        </div>
+
+        <div class="category">
+
+            <div class="category-name">Hardworking</div>
+
+            <div class="stars" data-category="Hardworking"></div>
+
+        </div>
+
+        <div class="category">
+
+            <div class="category-name">Aggressive</div>
+
+            <div class="stars" data-category="Aggressive"></div>
+
+        </div>
+
+        <div class="category">
+
+            <div class="category-name">Personality</div>
+
+            <div class="stars" data-category="Personality"></div>
+
+        </div>
+
+        <div class="result">Rate the categories above ⭐</div>
+
+        <div class="buttons">
+
+            <button onclick="resetPerson(this)">
+
+                Delete Rating / Start Over
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- RUBAB -->
+
+    <div class="person" data-person="rubab">
+
+        <img src="2.jpeg" alt="Rubab">
+
+        <h2>Rubab</h2>
+
+        <div class="category">
+
+            <div class="category-name">Smart</div>
+
+            <div class="stars" data-category="Smart"></div>
+
+        </div>
+
+        <div class="category">
+
+            <div class="category-name">Funny</div>
+
+            <div class="stars" data-category="Funny"></div>
+
+        </div>
+
+        <div class="category">
+
+            <div class="category-name">Annoying</div>
+
+            <div class="stars" data-category="Annoying"></div>
+
+        </div>
+
+        <div class="category">
+
+            <div class="category-name">Good Looking</div>
+
+            <div class="stars" data-category="Good Looking"></div>
+
+        </div>
+
+        <div class="category">
+
+            <div class="category-name">Hardworking</div>
+
+            <div class="stars" data-category="Hardworking"></div>
+
+        </div>
+
+        <div class="category">
+
+            <div class="category-name">Aggressive</div>
+
+            <div class="stars" data-category="Aggressive"></div>
+
+        </div>
+
+        <div class="category">
+
+            <div class="category-name">Personality</div>
+
+            <div class="stars" data-category="Personality"></div>
+
+        </div>
+
+        <div class="result">Rate the categories above ⭐</div>
+
+        <div class="buttons">
+
+            <button onclick="resetPerson(this)">
+
+                Delete Rating / Start Over
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- SABA -->
+
+    <div class="person" data-person="saba">
+
+        <img src="3.jpeg" alt="Saba">
+
+        <h2>Saba</h2>
+
+        <div class="category">
+
+            <div class="category-name">Smart</div>
+
+            <div class="stars" data-category="Smart"></div>
+
+        </div>
+
+        <div class="category">
+
+            <div class="category-name">Funny</div>
+
+            <div class="stars" data-category="Funny"></div>
+
+        </div>
+
+        <div class="category">
+
+            <div class="category-name">Annoying</div>
+
+            <div class="stars" data-category="Annoying"></div>
+
+        </div>
+
+        <div class="category">
+
+            <div class="category-name">Good Looking</div>
+
+            <div class="stars" data-category="Good Looking"></div>
+
+        </div>
+
+        <div class="category">
+
+            <div class="category-name">Hardworking</div>
+
+            <div class="stars" data-category="Hardworking"></div>
+
+        </div>
+
+        <div class="category">
+
+            <div class="category-name">Aggressive</div>
+
+            <div class="stars" data-category="Aggressive"></div>
+
+        </div>
+
+        <div class="category">
+
+            <div class="category-name">Personality</div>
+
+            <div class="stars" data-category="Personality"></div>
+
+        </div>
+
+        <div class="result">Rate the categories above ⭐</div>
+
+        <div class="buttons">
+
+            <button onclick="resetPerson(this)">
+
+                Delete Rating / Start Over
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- BILAL -->
+
+    <div class="person" data-person="bilal">
+
+        <img src="4.png" alt="Bilal">
+
+        <h2>Bilal</h2>
+
+        <div class="category">
+
+            <div class="category-name">Smart</div>
+
+            <div class="stars" data-category="Smart"></div>
+
+        </div>
+
+        <div class="category">
+
+            <div class="category-name">Funny</div>
+
+            <div class="stars" data-category="Funny"></div>
+
+        </div>
+
+        <div class="category">
+
+            <div class="category-name">Annoying</div>
+
+            <div class="stars" data-category="Annoying"></div>
+
+        </div>
+
+        <div class="category">
+
+            <div class="category-name">Good Looking</div>
+
+            <div class="stars" data-category="Good Looking"></div>
+
+        </div>
+
+        <div class="category">
+
+            <div class="category-name">Hardworking</div>
+
+            <div class="stars" data-category="Hardworking"></div>
+
+        </div>
+
+        <div class="category">
+
+            <div class="category-name">Aggressive</div>
+
+            <div class="stars" data-category="Aggressive"></div>
+
+        </div>
+
+        <div class="category">
+
+            <div class="category-name">Personality</div>
+
+            <div class="stars" data-category="Personality"></div>
+
+        </div>
+
+        <div class="result">Rate the categories above ⭐</div>
+
+        <div class="buttons">
+
+            <button onclick="resetPerson(this)">
+
+                Delete Rating / Start Over
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- SHAHBAZ -->
+
+    <div class="person" data-person="shahbaz">
+
+        <img src="5.jpeg" alt="Shahbaz">
+
+        <h2>Shahbaz</h2>
+
+        <div class="category">
+
+            <div class="category-name">Smart</div>
+
+            <div class="stars" data-category="Smart"></div>
+
+        </div>
+
+        <div class="category">
+
+            <div class="category-name">Funny</div>
+
+            <div class="stars" data-category="Funny"></div>
+
+        </div>
+
+        <div class="category">
+
+            <div class="category-name">Annoying</div>
+
+            <div class="stars" data-category="Annoying"></div>
+
+        </div>
+
+        <div class="category">
+
+            <div class="category-name">Good Looking</div>
+
+            <div class="stars" data-category="Good Looking"></div>
+
+        </div>
+
+        <div class="category">
+
+            <div class="category-name">Hardworking</div>
+
+            <div class="stars" data-category="Hardworking"></div>
+
+        </div>
+
+        <div class="category">
+
+            <div class="category-name">Aggressive</div>
+
+            <div class="stars" data-category="Aggressive"></div>
+
+        </div>
+
+        <div class="category">
+
+            <div class="category-name">Personality</div>
+
+            <div class="stars" data-category="Personality"></div>
+
+        </div>
+
+        <div class="result">Rate the categories above ⭐</div>
+
+        <div class="buttons">
+
+            <button onclick="resetPerson(this)">
+
+                Delete Rating / Start Over
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- DUMBO -->
+
+    <div class="person" data-person="dumbo">
+
+        <img src="6.jpeg" alt="Dumbo">
+
+        <h2>Dumbo</h2>
+
+        <div class="category">
+
+            <div class="category-name">Smart</div>
+
+            <div class="stars" data-category="Smart"></div>
+
+        </div>
+
+        <div class="category">
+
+            <div class="category-name">Funny</div>
+
+            <div class="stars" data-category="Funny"></div>
+
+        </div>
+
+        <div class="category">
+
+            <div class="category-name">Annoying</div>
+
+            <div class="stars" data-category="Annoying"></div>
+
+        </div>
+
+        <div class="category">
+
+            <div class="category-name">Good Looking</div>
+
+            <div class="stars" data-category="Good Looking"></div>
+
+        </div>
+
+        <div class="category">
+
+            <div class="category-name">Hardworking</div>
+
+            <div class="stars" data-category="Hardworking"></div>
+
+        </div>
+
+        <div class="category">
+
+            <div class="category-name">Aggressive</div>
+
+            <div class="stars" data-category="Aggressive"></div>
+
+        </div>
+
+        <div class="category">
+
+            <div class="category-name">Personality</div>
+
+            <div class="stars" data-category="Personality"></div>
+
+        </div>
+
+        <div class="result">Rate the categories above ⭐</div>
+
+        <div class="buttons">
+
+            <button onclick="resetPerson(this)">
+
+                Delete Rating / Start Over
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+/* Create 10 clickable stars for every category */
+
+document.querySelectorAll(".stars").forEach(function(starsBox) {
+
+    for (let number = 1; number <= 10; number++) {
+
+        const star = document.createElement("span");
+
+        star.className = "star";
+
+        star.textContent = "★";
+
+        star.addEventListener("click", function() {
+
+            const allStars = starsBox.querySelectorAll(".star");
+
+            allStars.forEach(function(item, index) {
+
+                if (index < number) {
+
+                    item.classList.add("active");
+
+                } else {
+
+                    item.classList.remove("active");
+
+                }
+
+            });
+
+            updatePerson(starsBox.closest(".person"));
+
+        });
+
+        starsBox.appendChild(star);
+
+    }
+
+});
+
+/* Calculate the person's average */
+
+function updatePerson(personCard) {
+
+    const starGroups = personCard.querySelectorAll(".stars");
+
+    let total = 0;
+
+    let ratedCategories = 0;
+
+    starGroups.forEach(function(group) {
+
+        const activeStars = group.querySelectorAll(".active").length;
+
+        if (activeStars > 0) {
+
+            total += activeStars;
+
+            ratedCategories++;
+
+        }
+
+    });
+
+    const result = personCard.querySelector(".result");
+
+    if (ratedCategories === 0) {
+
+        result.textContent = "Rate the categories above ⭐";
+
+        return;
+
+    }
+
+    const average = (total / ratedCategories).toFixed(1);
+
+    result.textContent =
+
+        "Average rating: " + average + " / 10 ⭐";
+
+}
+
+/* Delete this person's ratings and start over */
+
+function resetPerson(button) {
+
+    const personCard = button.closest(".person");
+
+    const allStars = personCard.querySelectorAll(".star");
+
+    allStars.forEach(function(star) {
+
+        star.classList.remove("active");
+
+    });
+
+    const result = personCard.querySelector(".result");
+
+    result.textContent = "Rate the categories above ⭐";
+
+}
+
+</script>
+
+</body>
+
+</html>
