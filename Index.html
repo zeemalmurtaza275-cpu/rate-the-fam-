@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Rating 💕</title>
+
+<style>
+
+    * {
+
+        box-sizing: border-box;
+
+        margin: 0;
+
+        padding: 0;
+
+    }
+
+    body {
+
+        font-family: Arial, sans-serif;
+
+        background: #ffe6f0;
+
+        color: #4a2633;
+
+        min-height: 100vh;
+
+    }
+
+    header {
+
+        text-align: center;
+
+        padding: 35px 15px 20px;
+
+    }
+
+    header h1 {
+
+        font-size: 42px;
+
+        color: #e75480;
+
+    }
+
+    header p {
+
+        margin-top: 8px;
+
+        color: #8b5367;
+
+        font-size: 16px;
+
+    }
+
+    .people {
+
+        display: grid;
+
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+
+        gap: 20px;
+
+        max-width: 900px;
+
+        margin: 20px auto;
+
+        padding: 20px;
+
+    }
+
+    .person {
+
+        background: white;
+
+        border-radius: 25px;
+
+        padding: 18px;
+
+        text-align: center;
+
+        cursor: pointer;
+
+        box-shadow: 0 6px 18px rgba(180, 80, 110, 0.15);
+
+        transition: 0.25s;
+
+    }
+
+    .person:hover {
+
+        transform: translateY(-6px) scale(1.02);
+
+    }
+
+    .person img {
+
+        width: 120px;
+
+        height: 120px;
+
+        object-fit: cover;
+
+        border-radius: 50%;
+
+        border: 5px solid #ffb6cc;
+
+        margin-bottom: 12px;
+
+    }
+
+    .person h2 {
+
+        color: #d94f78;
+
+        font-size: 20px;
+
+    }
+
+    #ratingPage {
+
+        display: none;
+
+        max-width: 800px;
+
+        margin: auto;
+
+        padding: 20px;
+
+    }
+
+    .back {
+
+        background: white;
+
+        border: none;
+
+        color: #d94f78;
+
+        font-size: 16px;
+
+        padding: 10px 15px;
+
+        border-radius: 12px;
+
+        cursor: pointer;
+
+        margin-bottom: 20px;
+
+    }
+
+    .selectedPerson {
+
+        text-align: center;
+
+        background: white;
+
+        padding: 25px;
+
+        border-radius: 25px;
+
+        margin-bottom: 20px;
+
+    }
+
+    .selectedPerson img {
+
+        width: 130px;
+
+        height: 130px;
+
+        object-fit: cover;
+
+        border-radius: 50%;
+
+        border: 5px solid #ffb6cc;
+
+    }
+
+    .selectedPerson h2 {
+
+        margin-top: 10px;
+
+        color: #d94f78;
+
+        font-size: 28px;
+
+    }
+
+    .category {
+
+        background: white;
+
+        border-radius: 20px;
+
+        padding: 20px;
+
+        margin: 15px 0;
+
+        box-shadow: 0 4px 12px rgba(180, 80, 110, 0.1);
+
+    }
+
+    .category h3 {
+
+        text-align: center;
+
+        color: #8b5367;
+
+        margin-bottom: 12px;
+
+    }
+
+    .stars {
+
+        display: flex;
+
+        justify-content: center;
+
+        gap: 5px;
+
+        flex-wrap: wrap;
+
+    }
+
+    .star {
+
+        font-size: 30px;
+
+        cursor: pointer;
+
+        color: #ddd;
+
+        transition: 0.15s;
+
+    }
+
+    .star.active {
+
+        color: #ff5c91;
+
+    }
+
+    .score {
+
+        text-align: center;
+
+        margin-top: 8px;
+
+        color: #d94f78;
+
+        font-weight: bold;
+
+    }
+
+    .saveBtn,
+
+    .leaderboardBtn,
+
+    .resetBtn {
+
+        display: block;
+
+        width: 100%;
+
+        border: none;
+
+        border-radius: 15px;
+
+        padding: 15px;
+
+        font-size: 17px;
+
+        cursor: pointer;
+
+        margin-top: 15px;
+
+    }
+
+    .saveBtn {
+
+        background: #e75480;
+
+        color: white;
+
+    }
+
+    .leaderboardBtn {
+
+        background: white;
+
+        color: #d94f78;
+
+    }
+
+    .resetBtn {
+
+        background: #ffd1df;
+
+        color: #a83d60;
+
+    }
+
+    #leaderboard {
+
+        display: none;
+
+        max-width: 800px;
+
+        margin: auto;
+
+        padding: 20px;
+
+    }
+
+    .board {
+
+        background: white;
+
+        border-radius: 25px;
+
+        padding: 25px;
+
+    }
+
+    .board h2 {
+
+        text-align: center;
+
+        color: #e75480;
+
+        margin-bottom: 20px;
+
+    }
+
+    .rank {
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 15px;
+
+        padding: 12px;
+
+        border-bottom: 1px solid #ffd6e2;
+
+    }
+
+    .rank img {
+
+        width: 55px;
+
+        height: 55px;
+
+        object-fit: cover;
+
+        border-radius: 50%;
+
+    }
+
+    .rankInfo {
+
+        flex: 1;
+
+    }
+
+    .rankInfo h3 {
+
+        color: #d94f78;
+
+    }
+
+    .rankInfo p {
+
+        color: #8b5367;
+
+        font-size: 14px;
+
+    }
+
+    .percentage {
+
+        font-size: 18px;
+
+        font-weight: bold;
+
+        color: #e75480;
+
+    }
+
+    .empty {
+
+        text-align: center;
+
+        color: #999;
+
+        padding: 20px;
+
+    }
+
+    @media (max-width: 500px) {
+
+        header h1 {
+
+            font-size: 34px;
+
+        }
+
+        .people {
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 12px;
+
+            padding: 12px;
+
+        }
+
+        .person img {
+
+            width: 95px;
+
+            height: 95px;
+
+        }
+
+        .person h2 {
+
+            font-size: 17px;
+
+        }
+
+    }
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>Rating 💕</h1>
+
+    <p>Rate the fam... but be honest 😭</p>
+
+</header>
+
+<!-- PEOPLE PAGE -->
+
+<div id="peoplePage">
+
+    <div class="people">
+
+        <div class="person" onclick="openPerson('Zeemal')">
+
+            <img src="1.jpeg" alt="Zeemal">
+
+            <h2>Zeemal</h2>
+
+        </div>
+
+        <div class="person" onclick="openPerson('Rubab')">
+
+            <img src="2.jpeg" alt="Rubab">
+
+            <h2>Rubab</h2>
+
+        </div>
+
+        <div class="person" onclick="openPerson('Saba')">
+
+            <img src="3.jpeg" alt="Saba">
+
+            <h2>Saba</h2>
+
+        </div>
+
+        <div class="person" onclick="openPerson('Bilal')">
+
+            <img src="4.png" alt="Bilal">
+
+            <h2>Bilal</h2>
+
+        </div>
+
+        <div class="person" onclick="openPerson('Shahbaz')">
+
+            <img src="5.jpeg" alt="Shahbaz">
+
+            <h2>Shahbaz</h2>
+
+        </div>
+
+        <div class="person" onclick="openPerson('Dumbo')">
+
+            <img src="6.jpeg" alt="Dumbo">
+
+            <h2>Dumbo</h2>
+
+        </div>
+
+    </div>
+
+    <div style="max-width:800px;margin:auto;padding:20px;">
+
+        <button class="leaderboardBtn" onclick="showLeaderboard()">
+
+            🏆 View Leaderboard
+
+        </button>
+
+    </div>
+
+</div>
+
+<!-- RATING PAGE -->
+
+<div id="ratingPage">
+
+    <button class="back" onclick="goBack()">← Back</button>
+
+    <div class="selectedPerson">
+
+        <img id="selectedImage" src="" alt="">
+
+        <h2 id="selectedName"></h2>
+
+    </div>
+
+    <div id="categories"></div>
+
+    <button class="saveBtn" onclick="saveRating()">
+
+        💾 Save Rating
+
+    </button>
+
+</div>
+
+<!-- LEADERBOARD -->
+
+<div id="leaderboard">
+
+    <button class="back" onclick="hideLeaderboard()">← Back</button>
+
+    <div class="board">
+
+        <h2>🏆 Leaderboard 💕</h2>
+
+        <div id="leaderboardList"></div>
+
+        <button class="resetBtn" onclick="resetRatings()">
+
+            🔄 Reset All Ratings
+
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+
+const people = {
+
+    Zeemal: "1.jpeg",
+
+    Rubab: "2.jpeg",
+
+    Saba: "3.jpeg",
+
+    Bilal: "4.png",
+
+    Shahbaz: "5.jpeg",
+
+    Dumbo: "6.jpeg"
+
+};
+
+const categories = [
+
+    "Smart",
+
+    "Funny",
+
+    "Annoying",
+
+    "Good Looking",
+
+    "Hardworking",
+
+    "Aggressive",
+
+    "Personality"
+
+];
+
+let currentPerson = "";
+
+let ratings = JSON.parse(localStorage.getItem("famRatings")) || {};
+
+function openPerson(name) {
+
+    currentPerson = name;
+
+    document.getElementById("peoplePage").style.display = "none";
+
+    document.getElementById("ratingPage").style.display = "block";
+
+    document.getElementById("selectedName").textContent = name;
+
+    document.getElementById("selectedImage").src = people[name];
+
+    if (!ratings[name]) {
+
+        ratings[name] = {};
+
+    }
+
+    createCategories();
+
+}
+
+function createCategories() {
+
+    const container = document.getElementById("categories");
+
+    container.innerHTML = "";
+
+    categories.forEach(category => {
+
+        const value = ratings[currentPerson][category] || 0;
+
+        const div = document.createElement("div");
+
+        div.className = "category";
+
+        div.innerHTML = `
+
+            <h3>${category}</h3>
+
+            <div class="stars">
+
+                ${Array.from({length: 10}, (_, i) => `
+
+                    <span
+
+                        class="star ${i < value ? "active" : ""}"
+
+                        onclick="setRating('${category}', ${i + 1})">
+
+                        ★
+
+                    </span>
+
+                `).join("")}
+
+            </div>
+
+            <div class="score">
+
+                ${value}/10
+
+            </div>
+
+        `;
+
+        container.appendChild(div);
+
+    });
+
+}
+
+function setRating(category, value) {
+
+    ratings[currentPerson][category] = value;
+
+    createCategories();
+
+}
+
+function saveRating() {
+
+    localStorage.setItem("famRatings", JSON.stringify(ratings));
+
+    alert("Rating saved 💕");
+
+    goBack();
+
+}
+
+function goBack() {
+
+    document.getElementById("ratingPage").style.display = "none";
+
+    document.getElementById("peoplePage").style.display = "block";
+
+}
+
+function showLeaderboard() {
+
+    document.getElementById("peoplePage").style.display = "none";
+
+    document.getElementById("leaderboard").style.display = "block";
+
+    createLeaderboard();
+
+}
+
+function hideLeaderboard() {
+
+    document.getElementById("leaderboard").style.display = "none";
+
+    document.getElementById("peoplePage").style.display = "block";
+
+}
+
+function createLeaderboard() {
+
+    const list = document.getElementById("leaderboardList");
+
+    let results = [];
+
+    Object.keys(people).forEach(name => {
+
+        const personRatings = ratings[name] || {};
+
+        let total = 0;
+
+        let count = 0;
+
+        categories.forEach(category => {
+
+            if (personRatings[category]) {
+
+                total += personRatings[category];
+
+                count++;
+
+            }
+
+        });
+
+        const percentage = count === 0
+
+            ? 0
+
+            : Math.round((total / (count * 10)) * 100);
+
+        results.push({
+
+            name: name,
+
+            percentage: percentage
+
+        });
+
+    });
+
+    results.sort((a, b) => b.percentage - a.percentage);
+
+    if (results.every(person => person.percentage === 0)) {
+
+        list.innerHTML = `
+
+            <div class="empty">
+
+                No ratings yet 😭💕
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+    list.innerHTML = results.map((person, index) => `
+
+        <div class="rank">
+
+            <strong>${index + 1}.</strong>
+
+            <img src="${people[person.name]}" alt="${person.name}">
+
+            <div class="rankInfo">
+
+                <h3>${person.name}</h3>
+
+                <p>${person.percentage}% overall</p>
+
+            </div>
+
+            <div class="percentage">
+
+                ${person.percentage}%
+
+            </div>
+
+        </div>
+
+    `).join("");
+
+}
+
+function resetRatings() {
+
+    const confirmation = confirm(
+
+        "Are you sure you want to delete ALL ratings?"
+
+    );
+
+    if (confirmation) {
+
+        ratings = {};
+
+        localStorage.removeItem("famRatings");
+
+        createLeaderboard();
+
+        alert("All ratings deleted 💕");
+
+    }
+
+}
+
+</script>
+
+</body>
+
+</html>
